@@ -5,7 +5,7 @@ It is implemented using C++ and supports Python scripting.
 
 It's most interesting features are currently:
 
-* clearly seprated submodules, so that parts of the engine could be used as standalones.    
+* clearly separated submodules, so that parts of the engine could be used as standalones.    
 * An easy to use API for graphics using OpenGL. 
 * An entity-component-systems architecture for flexibility and scalability in creating game worlds.
 * A Python interface (pyshake) using Pybind11, that allows for interesting interoperability.    
