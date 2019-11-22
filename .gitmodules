@@ -25,3 +25,6 @@
 [submodule "shake_test_game"]
 	path = shake_test_game
 	url = https://github.com/berryvansomeren/shake_test_game.git
+[submodule "cmake_generator"]
+	path = cmake_generator
+	url = https://github.com/berryvansomeren/cmake_generator.git
