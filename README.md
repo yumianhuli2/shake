@@ -15,7 +15,7 @@ Shake is still under active development.
 Demo's will hopefully follow soon.     
 
 This repository simply includes all submodules and combines them into a single project.    
-Please check out the submodules as well:    
+The submodules are:  
 
 * [shake_content](https://github.com/berryvansomeren/shake_content/)
 * [shake_core](https://github.com/berryvansomeren/shake_core/)
