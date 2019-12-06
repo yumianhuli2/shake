@@ -82,7 +82,6 @@ add_library( shake_content SHARED ${shake_content_glob_files} )
 target_include_directories( shake_content PRIVATE 
     "C:/Users/Berry/Documents/development/shake3/shake_content/src"
     "C:/Users/Berry/Documents/development/shake3/external/freetype-2.9/include"
-    "C:/Users/Berry/Documents/development/shake3/external/glad/include"
     "C:/Users/Berry/Documents/development/shake3/external/glm"
     "C:/Users/Berry/Documents/development/shake3/external/json11"
     "C:/Users/Berry/Documents/development/shake3/external/stb"
@@ -93,7 +92,6 @@ target_include_directories( shake_content PRIVATE
 
 target_link_libraries( shake_content PRIVATE 
     freetype
-    glad
     json11
     shake_core
     shake_graphics
@@ -125,7 +123,6 @@ add_library( shake_ecs SHARED ${shake_ecs_glob_files} )
 
 target_include_directories( shake_ecs PRIVATE 
     "C:/Users/Berry/Documents/development/shake3/shake_ecs/src"
-    "C:/Users/Berry/Documents/development/shake3/external/glad/include"
     "C:/Users/Berry/Documents/development/shake3/external/glm"
     ${PYBIND11_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
@@ -135,7 +132,6 @@ target_include_directories( shake_ecs PRIVATE
 )
 
 target_link_libraries( shake_ecs PRIVATE 
-    glad
     pybind11
     ${PYTHON_LIBRARIES}
     shake_core
@@ -156,13 +152,11 @@ target_include_directories( shake_graphics PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_graphics/src"
     "C:/Users/Berry/Documents/development/shake3/external/glad/include"
     "C:/Users/Berry/Documents/development/shake3/external/glm"
-    "C:/Users/Berry/Documents/development/shake3/external/glfw/include"
     "C:/Users/Berry/Documents/development/shake3/shake_core/src" 
 )
 
 target_link_libraries( shake_graphics PRIVATE 
     glad
-    glfw
     shake_core 
 )
 
@@ -177,7 +171,6 @@ add_library( shake_hid SHARED ${shake_hid_glob_files} )
 
 target_include_directories( shake_hid PRIVATE 
     "C:/Users/Berry/Documents/development/shake3/shake_hid/src"
-    "C:/Users/Berry/Documents/development/shake3/external/glad/include"
     "C:/Users/Berry/Documents/development/shake3/external/glfw/include"
     "C:/Users/Berry/Documents/development/shake3/external/glm"
     ${PYBIND11_INCLUDE_DIR}
@@ -186,7 +179,6 @@ target_include_directories( shake_hid PRIVATE
 )
 
 target_link_libraries( shake_hid PRIVATE 
-    glad
     glfw
     pybind11
     ${PYTHON_LIBRARIES}
@@ -224,8 +216,6 @@ add_library( shake_main SHARED ${shake_main_glob_files} )
 
 target_include_directories( shake_main PRIVATE 
     "C:/Users/Berry/Documents/development/shake3/shake_main/src"
-    "C:/Users/Berry/Documents/development/shake3/external/glad/include"
-    "C:/Users/Berry/Documents/development/shake3/external/glfw/include"
     "C:/Users/Berry/Documents/development/shake3/external/glm"
     "C:/Users/Berry/Documents/development/shake3/external/json11"
     "C:/Users/Berry/Documents/development/shake3/shake_content/src"
@@ -237,8 +227,6 @@ target_include_directories( shake_main PRIVATE
 )
 
 target_link_libraries( shake_main PRIVATE 
-    glad
-    glfw
     json11
     shake_content
     shake_core

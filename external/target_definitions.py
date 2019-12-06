@@ -17,7 +17,7 @@ def get_target_definitions() -> List[ Target ] :
 
     glad = NewTarget(
         name            = 'glad',
-        target_type     = TargetType.StaticLibrary,
+        target_type     = TargetType.StaticLibrary, # static since only shake_graphics uses it
         src_dir_path    = fix_relative_path( 'glad/src/' ),
         include_dirs    = [ fix_relative_path( 'glad/include/' ) ]
     )
@@ -42,7 +42,7 @@ option( GLFW_BUILD_TESTS		OFF )
 
     json11 = NewTarget(
         name            = 'json11',
-        target_type     = TargetType.SharedLibrary,
+        target_type     = TargetType.SharedLibrary, # shared because many shake modules use it
         src_dir_path    = fix_relative_path( 'json11/json11/' ),
         include_dirs    = [ fix_relative_path( 'json11/' ) ]
     )
@@ -50,7 +50,7 @@ option( GLFW_BUILD_TESTS		OFF )
     pybind11 = ImportTarget(
         name            = 'pybind11',
         subtargets      = [ 'pybind11', '${PYTHON_LIBRARIES}' ],
-        src_dir_path    =fix_relative_path( 'pybind11-2.2.3/' ),
+        src_dir_path    = fix_relative_path( 'pybind11-2.2.3/' ),
         include_dirs    = [ '${PYBIND11_INCLUDE_DIR}', '${PYTHON_INCLUDE_DIRS}' ],
         pre_import_inline_cmake = """
 set( PYBIND11_CPP_STANDARD -std=c++17 )        
