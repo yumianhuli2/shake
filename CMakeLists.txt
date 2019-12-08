@@ -239,6 +239,37 @@ target_link_libraries( shake_main PRIVATE
 set_property( TARGET shake_main PROPERTY CXX_STANDARD 17 )    
 
 # ----------------------------------------------------------------
+# New Target: _shake3
+
+file( GLOB_RECURSE _shake3_glob_files "C:/Users/Berry/Documents/development/shake3/shake_main/src/*" )
+
+add_executable( _shake3 ${_shake3_glob_files} )
+
+target_include_directories( _shake3 PRIVATE 
+    "C:/Users/Berry/Documents/development/shake3/shake_main/src"
+    "C:/Users/Berry/Documents/development/shake3/external/glm"
+    "C:/Users/Berry/Documents/development/shake3/external/json11"
+    "C:/Users/Berry/Documents/development/shake3/shake_content/src"
+    "C:/Users/Berry/Documents/development/shake3/shake_core/src"
+    "C:/Users/Berry/Documents/development/shake3/shake_ecs/src"
+    "C:/Users/Berry/Documents/development/shake3/shake_graphics/src"
+    "C:/Users/Berry/Documents/development/shake3/shake_hid/src"
+    "C:/Users/Berry/Documents/development/shake3/shake_io/src" 
+)
+
+target_link_libraries( _shake3 PRIVATE 
+    json11
+    shake_content
+    shake_core
+    shake_ecs
+    shake_graphics
+    shake_hid
+    shake_io 
+)
+
+set_property( TARGET _shake3 PROPERTY CXX_STANDARD 17 )    
+
+# ----------------------------------------------------------------
 # New Target: shake_python
 
 file( GLOB_RECURSE shake_python_glob_files "C:/Users/Berry/Documents/development/shake3/shake_python/src/*" )
