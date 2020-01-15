@@ -1,18 +1,17 @@
 # shake3
 
 Shake is a hobby game engine / programming sandbox.    
-It is implemented using C++ and supports Python scripting.
+It is implemented using a C++ core with Python bindings.
 
 It's most interesting features are currently:
+   
+* An easy to use graphics API using the latest version of OpenGL (4.6) and it's DSA features. 
+* An entity-component-systems architecture for flexibility, scalability and performance in managing game worlds.
+* Python bindings (pyshake) created using Pybind11, that enables you to easily script your own games.
+* Shake uses CMake for managing builds, but actually uses Python code to configure targets. 
 
-* clearly separated submodules, so that parts of the engine could be used as standalones.    
-* An easy to use API for graphics using OpenGL. 
-* An entity-component-systems architecture for flexibility and scalability in creating game worlds.
-* A Python interface (pyshake) using Pybind11, that allows for interesting interoperability.    
-I.e. Python objects can inherit from C++ objects, allowing the engine the manage Python-based systems in C++ )
-
-Shake is still under active development.    
-Demo's will hopefully follow soon.     
+Shake is only in it's initial stage and is still undergoing active development, and massive refactoring efforts.   
+A first demo will hopefully follow soon.     
 
 This repository simply includes all submodules and combines them into a single project.    
 The submodules are:  
