@@ -9,8 +9,8 @@ It's most interesting features are currently:
 * An entity-component-systems architecture for flexibility, scalability and performance in managing game worlds.
 * Python bindings (pyshake) created using Pybind11, that enable you to easily script your own games.
 * Uses CMake for build management, but actually uses Python for target specification. 
-* Uses modern c++(17) features such as any, variant and fold expressions.
-* Uses custom (pre-c++20) ranges inspired by Python ranges and Boost iterators.
+* Uses modern c++(17) features such as any, variant, visit and fold expressions.
+* Uses custom (pre-c++20) ranges inspired by Python ranges and Boost Range.
 
 Shake is only in it's initial stage and is still undergoing active development, and massive refactoring efforts.   
 A first demo will hopefully follow soon.     
