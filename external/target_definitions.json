@@ -1,0 +1,43 @@
+[
+    {
+        "target_name"           : "freetype",
+        "target_type"           : "import",
+        "source_directory_path" : "freetype-2.9/",
+        "include_directories"   : [ "freetype-2.9/include/" ]
+    },
+    {
+        "target_name"           : "glad",
+        "target_type"           : "static_library",
+        "source_directory_path" : "glad/src/",
+        "include_directories"   : [ "glad/include/" ]
+    },
+    {
+        "target_name"           : "glfw",
+        "target_type"           : "import",
+        "source_directory_path" : "glfw/",
+        "include_directories"   : [ "glfw/include/" ],
+        "pre_import_inline_cmake" : [
+            "set( BUILD_SHARED_LIBS         ON  )",
+            "option( GLFW_INSTALL           OFF )",
+            "option( GLFW_BUILD_DOCS        OFF )",
+            "option( GLFW_BUILD_EXAMPLES    OFF )",
+            "option( GLFW_BUILD_TESTS       OFF )"
+        ]
+    },
+    {
+        "target_name"           : "glm",
+        "target_type"           : "header_only_library",
+        "include_directories"   : [ "glm/" ]
+    },
+    {
+        "target_name"           : "json11",
+        "target_type"           : "shared_library",
+        "source_directory_path" : "json11/json11/",
+        "include_directories"   : [ "json11/" ]
+    },
+    {
+        "target_name"           : "stb",
+        "target_type"           : "header_only_library",
+        "include_directories"   : [ "stb/" ]
+    }
+]
