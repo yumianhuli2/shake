@@ -1,4 +1,4 @@
-# shake3
+# shake
 
 Shake is a hobby game engine / programming sandbox.    
 It is implemented using a C++ core with Python bindings.
