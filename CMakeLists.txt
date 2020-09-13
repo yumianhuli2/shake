@@ -36,7 +36,13 @@ list( APPEND glad_include_directories
     "C:/Users/Berry/Documents/development/shake3/external//glad/include/"
 )
 target_include_directories( glad PRIVATE ${glad_include_directories} )
-set_property( TARGET glad PROPERTY CXX_STANDARD 20 )
+set_target_properties(
+    glad
+    PROPERTIES
+        CXX_STANDARD 20
+        UNITY_BUILD OFF
+)
+
 
 # ----------------------------------------------------------------
 # Import Targets: glfw
@@ -57,7 +63,13 @@ list( APPEND json11_include_directories
     "C:/Users/Berry/Documents/development/shake3/external//json11/"
 )
 target_include_directories( json11 PRIVATE ${json11_include_directories} )
-set_property( TARGET json11 PROPERTY CXX_STANDARD 20 )
+set_target_properties(
+    json11
+    PROPERTIES
+        CXX_STANDARD 20
+        UNITY_BUILD OFF
+)
+
 
 # ----------------------------------------------------------------
 # New Target: shake_content
@@ -83,7 +95,13 @@ list( APPEND shake_content_link_libraries
     "shake_io"
 )
 target_link_libraries( shake_content PRIVATE ${shake_content_link_libraries} )
-set_property( TARGET shake_content PROPERTY CXX_STANDARD 20 )
+set_target_properties(
+    shake_content
+    PROPERTIES
+        CXX_STANDARD 20
+        UNITY_BUILD OFF
+)
+
 
 # ----------------------------------------------------------------
 # New Target: shake_core
@@ -95,7 +113,13 @@ list( APPEND shake_core_include_directories
     "C:/Users/Berry/Documents/development/shake3/external//glm/"
 )
 target_include_directories( shake_core PRIVATE ${shake_core_include_directories} )
-set_property( TARGET shake_core PROPERTY CXX_STANDARD 20 )
+set_target_properties(
+    shake_core
+    PROPERTIES
+        CXX_STANDARD 20
+        UNITY_BUILD OFF
+)
+
 
 # ----------------------------------------------------------------
 # New Target: shake_ecs
@@ -116,7 +140,13 @@ list( APPEND shake_ecs_link_libraries
     "shake_hid"
 )
 target_link_libraries( shake_ecs PRIVATE ${shake_ecs_link_libraries} )
-set_property( TARGET shake_ecs PROPERTY CXX_STANDARD 20 )
+set_target_properties(
+    shake_ecs
+    PROPERTIES
+        CXX_STANDARD 20
+        UNITY_BUILD OFF
+)
+
 
 # ----------------------------------------------------------------
 # New Target: shake_graphics
@@ -135,7 +165,13 @@ list( APPEND shake_graphics_link_libraries
     "shake_core"
 )
 target_link_libraries( shake_graphics PRIVATE ${shake_graphics_link_libraries} )
-set_property( TARGET shake_graphics PROPERTY CXX_STANDARD 20 )
+set_target_properties(
+    shake_graphics
+    PROPERTIES
+        CXX_STANDARD 20
+        UNITY_BUILD OFF
+)
+
 
 # ----------------------------------------------------------------
 # New Target: shake_hid
@@ -154,7 +190,13 @@ list( APPEND shake_hid_link_libraries
     "shake_core"
 )
 target_link_libraries( shake_hid PRIVATE ${shake_hid_link_libraries} )
-set_property( TARGET shake_hid PROPERTY CXX_STANDARD 20 )
+set_target_properties(
+    shake_hid
+    PROPERTIES
+        CXX_STANDARD 20
+        UNITY_BUILD OFF
+)
+
 
 # ----------------------------------------------------------------
 # New Target: shake_io
@@ -172,7 +214,13 @@ list( APPEND shake_io_link_libraries
     "shake_core"
 )
 target_link_libraries( shake_io PRIVATE ${shake_io_link_libraries} )
-set_property( TARGET shake_io PROPERTY CXX_STANDARD 20 )
+set_target_properties(
+    shake_io
+    PROPERTIES
+        CXX_STANDARD 20
+        UNITY_BUILD OFF
+)
+
 
 # ----------------------------------------------------------------
 # New Target: shake_main
@@ -201,5 +249,11 @@ list( APPEND shake_main_link_libraries
     "shake_io"
 )
 target_link_libraries( shake_main PRIVATE ${shake_main_link_libraries} )
-set_property( TARGET shake_main PROPERTY CXX_STANDARD 20 )
+set_target_properties(
+    shake_main
+    PROPERTIES
+        CXX_STANDARD 20
+        UNITY_BUILD OFF
+)
+
 
