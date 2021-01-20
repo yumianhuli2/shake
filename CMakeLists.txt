@@ -1,16 +1,17 @@
 # ----------------------------------------------------------------
 # This CMake file is generated automatically by the Shake3 CMake Generator
 # Don't change this file. Reconfigure the generator instead.
+# For more info see: https://github.com/berryvansomeren/cmake_generator
 
 cmake_minimum_required( VERSION 3.12 )
 
 # ----------------------------------------------------------------
 # CMake configuration
 
-set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY "C:\Users\Berry\Documents\development\shake3\build" )
-set( CMAKE_LIBRARY_OUTPUT_DIRECTORY "C:\Users\Berry\Documents\development\shake3\build" )
-set( CMAKE_RUNTIME_OUTPUT_DIRECTORY "C:\Users\Berry\Documents\development\shake3\build" )
-set( CMAKE_EXECUTABLE_OUTPUT_PATH   "C:\Users\Berry\Documents\development\shake3\build" )
+set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY "C:/Users/Berry/Documents/development/shake3/build" )
+set( CMAKE_LIBRARY_OUTPUT_DIRECTORY "C:/Users/Berry/Documents/development/shake3/build" )
+set( CMAKE_RUNTIME_OUTPUT_DIRECTORY "C:/Users/Berry/Documents/development/shake3/build" )
+set( CMAKE_EXECUTABLE_OUTPUT_PATH   "C:/Users/Berry/Documents/development/shake3/build" )
 
 # this option is necessary to automatically export ALL symbols in a library on Windows,
 # without needing to specify __declspec( export ).
@@ -24,15 +25,15 @@ project( shake VERSION 4.0 LANGUAGES CXX C )
 
 # ----------------------------------------------------------------
 # Import Targets: freetype
-add_subdirectory( "./freetype-2.9/" )
+add_subdirectory( "C:/Users/Berry/Documents/development/shake3/external/freetype-2.9" )
 
 # ----------------------------------------------------------------
 # New Target: glad
 
-file( GLOB_RECURSE glad_glob_files "./glad/src//*" )
+file( GLOB_RECURSE glad_glob_files "C:/Users/Berry/Documents/development/shake3/external/glad/src/*" )
 add_library( glad STATIC ${glad_glob_files} )
 target_include_directories( glad PRIVATE
-    "./glad/include/"
+    "C:/Users/Berry/Documents/development/shake3/external/glad/include"
 )
 set_property( TARGET glad PROPERTY CXX_STANDARD 17 ) 
 
@@ -44,21 +45,21 @@ option( GLFW_INSTALL			OFF )
 option( GLFW_BUILD_DOCS			OFF )
 option( GLFW_BUILD_EXAMPLES		OFF )
 option( GLFW_BUILD_TESTS		OFF )
-add_subdirectory( "./glfw/" )
+add_subdirectory( "C:/Users/Berry/Documents/development/shake3/external/glfw" )
 
 # ----------------------------------------------------------------
 # New Target: json11
 
-file( GLOB_RECURSE json11_glob_files "./json11/json11//*" )
+file( GLOB_RECURSE json11_glob_files "C:/Users/Berry/Documents/development/shake3/external/json11/json11/*" )
 add_library( json11 SHARED ${json11_glob_files} )
 target_include_directories( json11 PRIVATE
-    "./json11/"
+    "C:/Users/Berry/Documents/development/shake3/external/json11"
 )
 set_property( TARGET json11 PROPERTY CXX_STANDARD 17 ) 
 
 # ----------------------------------------------------------------
 # Import Targets: pybind11, ${PYTHON_LIBRARIES}
-add_subdirectory( "./pybind11-2.2.3/" )
+add_subdirectory( "C:/Users/Berry/Documents/development/shake3/external/pybind11-2.2.3" )
 
 # ----------------------------------------------------------------
 # New Target: shake_content
@@ -67,10 +68,10 @@ file( GLOB_RECURSE shake_content_glob_files "C:/Users/Berry/Documents/developmen
 add_library( shake_content SHARED ${shake_content_glob_files} )
 target_include_directories( shake_content PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_content/src"
-    "./freetype-2.9/include/"
-    "./glm/"
-    "./json11/"
-    "./stb/"
+    "C:/Users/Berry/Documents/development/shake3/external/freetype-2.9/include"
+    "C:/Users/Berry/Documents/development/shake3/external/glm"
+    "C:/Users/Berry/Documents/development/shake3/external/json11"
+    "C:/Users/Berry/Documents/development/shake3/external/stb"
     "C:/Users/Berry/Documents/development/shake3/shake_core/src"
     "C:/Users/Berry/Documents/development/shake3/shake_graphics/src"
     "C:/Users/Berry/Documents/development/shake3/shake_io/src"
@@ -91,7 +92,7 @@ file( GLOB_RECURSE shake_core_glob_files "C:/Users/Berry/Documents/development/s
 add_library( shake_core SHARED ${shake_core_glob_files} )
 target_include_directories( shake_core PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_core/src"
-    "./glm/"
+    "C:/Users/Berry/Documents/development/shake3/external/glm"
 )
 set_property( TARGET shake_core PROPERTY CXX_STANDARD 17 ) 
 
@@ -102,7 +103,7 @@ file( GLOB_RECURSE shake_ecs_glob_files "C:/Users/Berry/Documents/development/sh
 add_library( shake_ecs SHARED ${shake_ecs_glob_files} )
 target_include_directories( shake_ecs PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_ecs/src"
-    "./glm/"
+    "C:/Users/Berry/Documents/development/shake3/external/glm"
     ${PYBIND11_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
     "C:/Users/Berry/Documents/development/shake3/shake_core/src"
@@ -125,8 +126,8 @@ file( GLOB_RECURSE shake_graphics_glob_files "C:/Users/Berry/Documents/developme
 add_library( shake_graphics SHARED ${shake_graphics_glob_files} )
 target_include_directories( shake_graphics PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_graphics/src"
-    "./glad/include/"
-    "./glm/"
+    "C:/Users/Berry/Documents/development/shake3/external/glad/include"
+    "C:/Users/Berry/Documents/development/shake3/external/glm"
     "C:/Users/Berry/Documents/development/shake3/shake_core/src"
 )
 target_link_libraries( shake_graphics PRIVATE
@@ -142,8 +143,8 @@ file( GLOB_RECURSE shake_hid_glob_files "C:/Users/Berry/Documents/development/sh
 add_library( shake_hid SHARED ${shake_hid_glob_files} )
 target_include_directories( shake_hid PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_hid/src"
-    "./glfw/include/"
-    "./glm/"
+    "C:/Users/Berry/Documents/development/shake3/external/glfw/include"
+    "C:/Users/Berry/Documents/development/shake3/external/glm"
     ${PYBIND11_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
     "C:/Users/Berry/Documents/development/shake3/shake_core/src"
@@ -163,7 +164,7 @@ file( GLOB_RECURSE shake_io_glob_files "C:/Users/Berry/Documents/development/sha
 add_library( shake_io SHARED ${shake_io_glob_files} )
 target_include_directories( shake_io PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_io/src"
-    "./json11/"
+    "C:/Users/Berry/Documents/development/shake3/external/json11"
     "C:/Users/Berry/Documents/development/shake3/shake_core/src"
 )
 target_link_libraries( shake_io PRIVATE
@@ -179,8 +180,8 @@ file( GLOB_RECURSE shake_main_glob_files "C:/Users/Berry/Documents/development/s
 add_library( shake_main SHARED ${shake_main_glob_files} )
 target_include_directories( shake_main PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_main/src"
-    "./glm/"
-    "./json11/"
+    "C:/Users/Berry/Documents/development/shake3/external/glm"
+    "C:/Users/Berry/Documents/development/shake3/external/json11"
     "C:/Users/Berry/Documents/development/shake3/shake_content/src"
     "C:/Users/Berry/Documents/development/shake3/shake_core/src"
     "C:/Users/Berry/Documents/development/shake3/shake_ecs/src"
@@ -206,8 +207,8 @@ file( GLOB_RECURSE _shake3_glob_files "C:/Users/Berry/Documents/development/shak
 add_executable( _shake3 ${_shake3_glob_files} )
 target_include_directories( _shake3 PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_main/src"
-    "./glm/"
-    "./json11/"
+    "C:/Users/Berry/Documents/development/shake3/external/glm"
+    "C:/Users/Berry/Documents/development/shake3/external/json11"
     "C:/Users/Berry/Documents/development/shake3/shake_content/src"
     "C:/Users/Berry/Documents/development/shake3/shake_core/src"
     "C:/Users/Berry/Documents/development/shake3/shake_ecs/src"
