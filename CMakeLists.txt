@@ -227,3 +227,34 @@ target_link_libraries( _shake3 PRIVATE
 )
 set_property( TARGET _shake3 PROPERTY CXX_STANDARD 17 ) 
 
+# ----------------------------------------------------------------
+# New Target: pyshake
+
+file( GLOB_RECURSE pyshake_glob_files "C:/Users/Berry/Documents/development/shake3/shake_python/src/*" )
+pybind11_add_module( pyshake MODULE ${pyshake_glob_files} )
+target_include_directories( pyshake PRIVATE
+    "C:/Users/Berry/Documents/development/shake3/shake_python/src"
+    "C:/Users/Berry/Documents/development/shake3/external/glm"
+    ${PYBIND11_INCLUDE_DIR}
+    ${PYTHON_INCLUDE_DIRS}
+    "C:/Users/Berry/Documents/development/shake3/shake_content/src"
+    "C:/Users/Berry/Documents/development/shake3/shake_core/src"
+    "C:/Users/Berry/Documents/development/shake3/shake_ecs/src"
+    "C:/Users/Berry/Documents/development/shake3/shake_graphics/src"
+    "C:/Users/Berry/Documents/development/shake3/shake_hid/src"
+    "C:/Users/Berry/Documents/development/shake3/shake_io/src"
+    "C:/Users/Berry/Documents/development/shake3/shake_main/src"
+)
+target_link_libraries( pyshake PRIVATE
+    pybind11
+    ${PYTHON_LIBRARIES}
+    shake_content
+    shake_core
+    shake_ecs
+    shake_graphics
+    shake_hid
+    shake_io
+    shake_main
+)
+set_property( TARGET pyshake PROPERTY CXX_STANDARD 17 ) 
+

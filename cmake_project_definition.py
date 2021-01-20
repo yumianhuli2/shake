@@ -13,6 +13,7 @@ def get_project_definition() -> Project:
             "./shake_hid/",
             "./shake_io/",
             "./shake_main/",
+            "./shake_python/",
         ]
     ]
 

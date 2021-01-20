@@ -28,3 +28,6 @@
 [submodule "shake_scripting"]
 	path = shake_scripting
 	url = https://github.com/berryvansomeren/shake_scripting.git
+[submodule "shake_python"]
+	path = shake_python
+	url = https://github.com/berryvansomeren/shake_python.git
