@@ -1,10 +1,10 @@
-from cmake_generator import Project, Version, abs_path_str_from_rel_to_this_file
+from cmake_generator import Project, Version, absp
 
 # ----------------------------------------------------------------
 def get_project_definition() -> Project:
 
     target_definition_file_paths = [
-        ( abs_path_str_from_rel_to_this_file( path ) + "/target_definitions.py" ) for path in [
+        absp( path ) + "/target_definitions.py" for path in [
             "./external/",
             "./shake_content/",
             "./shake_core/",
@@ -19,7 +19,7 @@ def get_project_definition() -> Project:
     return Project(
         project_name                        = "shake",
         version                             = Version( 4, 0 ),
-        destination_cmake_lists_file_path   = abs_path_str_from_rel_to_this_file( "./CMakeLists.txt" ),
-        build_directory_path                = abs_path_str_from_rel_to_this_file( "./build/" ),
+        destination_cmake_lists_file_path   = absp( "./CMakeLists.txt" ),
+        build_directory_path                = absp( "./build/" ),
         target_definition_file_paths        = target_definition_file_paths
     )

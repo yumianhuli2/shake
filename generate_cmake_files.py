@@ -1,4 +1,4 @@
-import os
+from collections.abc import Iterable
 import logging
 import runpy
 from typing import Any, Dict, List
@@ -7,7 +7,7 @@ from cmake_generator import CMakeGenerator, Target, abs_path_str_from_rel_to_thi
 
 # ----------------------------------------------------------------
 def load_python_file_as_module( path_to_file : str ) -> Dict[ str, Any ]:
-    module = runpy.run_path( os.path.abspath( path_to_file ) )
+    module = runpy.run_path( path_to_file )
     return module
 
 # ----------------------------------------------------------------
@@ -16,8 +16,14 @@ def gather_target_definitions( target_definitions_directory_paths : List[ str ] 
     for target_definitions_directory_path in target_definitions_directory_paths:
         module_path = target_definitions_directory_path
         module = load_python_file_as_module( module_path )
-        module_target_definitions = module[ 'get_target_definitions' ]()
-        target_definitions.extend( module_target_definitions )
+        module_target_definitions = module[ "get_target_definitions" ]()
+
+        if isinstance( module_target_definitions, Iterable ):
+            add = lambda target, source : target.extend( source )
+        else:
+            add = lambda target, source : target.append( source )
+        add( target_definitions, module_target_definitions )
+
     return target_definitions
 
 # ----------------------------------------------------------------

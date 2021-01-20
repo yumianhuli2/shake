@@ -1,7 +1,14 @@
 from pathlib import Path
 from typing import Any, Dict, List
 
-from cmake_generator import Target, ImportTarget, HeaderOnlyTarget, NewTarget, TargetType, abs_path_str_from_rel_to_this_file as absp
+from cmake_generator import (
+    Target,
+    ImportTarget,
+    HeaderOnlyLibrary,
+    SharedLibrary,
+    StaticLibrary,
+    abs_path_str_from_rel_to_this_file as absp
+)
 
 # ----------------------------------------------------------------
 def get_target_definitions() -> List[ Target ] :
@@ -12,9 +19,8 @@ def get_target_definitions() -> List[ Target ] :
         include_dirs    = [ absp( './freetype-2.9/include/' ) ]
     )
 
-    glad = NewTarget(
+    glad = StaticLibrary(
         name            = 'glad',
-        target_type     = TargetType.StaticLibrary, # static since only shake_graphics uses it
         src_dir_path    = absp( './glad/src/' ),
         include_dirs    = [ absp( './glad/include/' ) ]
     )
@@ -32,14 +38,13 @@ option( GLFW_BUILD_TESTS		OFF )
 """
     )
 
-    glm = HeaderOnlyTarget(
+    glm = HeaderOnlyLibrary(
         name            = 'glm',
         include_dirs    = [ absp( './glm/' ) ]
     )
 
-    json11 = NewTarget(
+    json11 = SharedLibrary(
         name            = 'json11',
-        target_type     = TargetType.SharedLibrary, # shared because many shake modules use it
         src_dir_path    = absp( './json11/json11/' ),
         include_dirs    = [ absp( './json11/' ) ]
     )
@@ -51,7 +56,7 @@ option( GLFW_BUILD_TESTS		OFF )
         include_dirs    = [ '${PYBIND11_INCLUDE_DIR}', '${PYTHON_INCLUDE_DIRS}' ],
     )
 
-    stb = HeaderOnlyTarget(
+    stb = HeaderOnlyLibrary(
         name            = 'stb',
         include_dirs    = [ absp( './stb/' ) ]
     )
