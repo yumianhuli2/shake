@@ -21,7 +21,7 @@ set( CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON )
 # ----------------------------------------------------------------
 # Project: shake
 
-project( shake VERSION 4.0 LANGUAGES CXX C )
+project( shake VERSION 4.0 LANGUAGES CXX C CUDA )
 
 # ----------------------------------------------------------------
 # Import Targets: freetype
@@ -205,6 +205,8 @@ set_property( TARGET shake_main PROPERTY CXX_STANDARD 17 )
 
 file( GLOB_RECURSE _shake3_glob_files "C:/Users/Berry/Documents/development/shake3/shake_main/src/*" )
 add_executable( _shake3 ${_shake3_glob_files} )
+set_target_properties( _shake3 PROPERTIES CUDA_SEPARABLE_COMPILATION ON )
+
 target_include_directories( _shake3 PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_main/src"
     "C:/Users/Berry/Documents/development/shake3/external/glm"
@@ -231,7 +233,7 @@ set_property( TARGET _shake3 PROPERTY CXX_STANDARD 17 )
 # New Target: pyshake
 
 file( GLOB_RECURSE pyshake_glob_files "C:/Users/Berry/Documents/development/shake3/shake_python/src/*" )
-pybind11_add_module( pyshake MODULE ${pyshake_glob_files} )
+pybind11_add_module( pyshake SHARED ${pyshake_glob_files} )
 target_include_directories( pyshake PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_python/src"
     "C:/Users/Berry/Documents/development/shake3/external/glm"

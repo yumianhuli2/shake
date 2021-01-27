@@ -1,4 +1,6 @@
 # ignore visual studio files
 .vs/
 .idea/
+out/
 build/
+venv/

@@ -1,6 +1,6 @@
 import logging
 
-from cmake_generator import Project, Version, absp, generate_cmake_file
+from cmake_generator import Language, Project, Version, absp, generate_cmake_file
 
 # ----------------------------------------------------------------
 def main():
@@ -23,7 +23,8 @@ def main():
         version                             = Version( 4, 0 ),
         destination_cmake_lists_file_path   = absp( "./CMakeLists.txt" ),
         build_directory_path                = absp( "./build/" ),
-        target_definition_file_paths        = target_definition_file_paths
+        target_definition_file_paths        = target_definition_file_paths,
+        languages                           = [ Language.CXX, Language.C, Language.CUDA ]
     )
 
     generate_cmake_file( cmake_project_definition )
