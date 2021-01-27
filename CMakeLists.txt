@@ -3,7 +3,7 @@
 # Don't change this file. Reconfigure the generator instead.
 # For more info see: https://github.com/berryvansomeren/cmake_generator
 
-cmake_minimum_required( VERSION 3.12 )
+cmake_minimum_required( VERSION 3.17 )
 
 # ----------------------------------------------------------------
 # CMake configuration
@@ -22,6 +22,8 @@ set( CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON )
 # Project: shake
 
 project( shake VERSION 4.0 LANGUAGES CXX C CUDA )
+
+find_package( CUDAToolkit )
 
 # ----------------------------------------------------------------
 # Import Targets: freetype
@@ -178,6 +180,8 @@ set_property( TARGET shake_io PROPERTY CXX_STANDARD 17 )
 
 file( GLOB_RECURSE shake_main_glob_files "C:/Users/Berry/Documents/development/shake3/shake_main/src/*" )
 add_library( shake_main SHARED ${shake_main_glob_files} )
+set_target_properties( shake_main PROPERTIES CUDA_SEPARABLE_COMPILATION ON )
+
 target_include_directories( shake_main PRIVATE
     "C:/Users/Berry/Documents/development/shake3/shake_main/src"
     "C:/Users/Berry/Documents/development/shake3/external/glm"
@@ -197,6 +201,7 @@ target_link_libraries( shake_main PRIVATE
     shake_graphics
     shake_hid
     shake_io
+    CUDA::cudart
 )
 set_property( TARGET shake_main PROPERTY CXX_STANDARD 17 ) 
 
@@ -226,6 +231,7 @@ target_link_libraries( _shake3 PRIVATE
     shake_graphics
     shake_hid
     shake_io
+    CUDA::cudart
 )
 set_property( TARGET _shake3 PROPERTY CXX_STANDARD 17 ) 
 
