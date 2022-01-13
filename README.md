@@ -19,7 +19,7 @@ A first demo will hopefully follow soon.
 
 This repository simply includes all submodules and combines them into a single project.    
 The submodules are:  
-
+ 
 * [shake_content](https://github.com/berryvansomeren/shake_content/)
 * [shake_core](https://github.com/berryvansomeren/shake_core/)
 * [shake_ecs](https://github.com/berryvansomeren/shake_ecs/)
