@@ -1,0 +1,12 @@
+[
+    {
+        "target_name" : "shake_hid",
+        "target_type" : "shared_library",
+        "source_directory_path" : "src/",
+        "dependencies" : [
+            "glfw",
+            "glm",
+            "shake_core"
+        ]
+    }
+]

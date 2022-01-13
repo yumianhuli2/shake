@@ -1,0 +1,11 @@
+[
+    {
+        "target_name" : "shake_io",
+        "target_type" : "shared_library",
+        "source_directory_path" : "src/",
+        "dependencies" : [
+            "json11",
+            "shake_core"
+        ]
+    }
+]

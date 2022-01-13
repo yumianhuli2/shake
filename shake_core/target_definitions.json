@@ -1,0 +1,10 @@
+[
+    {
+        "target_name": "shake_core",
+        "target_type": "shared_library",
+        "source_directory_path": "src/",
+        "dependencies": [
+            "glm"
+        ]
+    }
+]
